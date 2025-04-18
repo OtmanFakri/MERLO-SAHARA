@@ -2,32 +2,27 @@
 export const navigationLinks = [
     {
         text: "Home",
-        href: "https://pro-theme.com/html/suprek/01_home.html",
+        href: "",
         active: false,
     },
     {
         text: "Equipments",
-        href: "https://pro-theme.com/html/suprek/03_equipment-categories.html",
+        href: "",
         active: true,
     },
     {
         text: "Our Solutions",
-        href: "https://pro-theme.com/html/suprek/07_equipment-detail.html",
+        href: "",
         active: false,
     },
     {
         text: "About",
-        href: "https://pro-theme.com/html/suprek/11_about-us.html",
-        active: false,
-    },
-    {
-        text: "News",
-        href: "https://pro-theme.com/html/suprek/08_blog-grid.html",
+        href: "",
         active: false,
     },
     {
         text: "Contact",
-        href: "https://pro-theme.com/html/suprek/12_contact-us.html",
+        href: "",
         active: false,
     },
 ];
@@ -42,13 +37,24 @@ export const socialIcons = [
 ];
 
 // Gallery images data
-export const galleryImages = [
-    { src: "/img-gallery.png", alt: "Main excavator image", active: true },
-    { src: "/img-gallery-1.png", alt: "Excavator thumbnail 1", active: true },
-    { src: "/img-gallery-2.png", alt: "Excavator thumbnail 2", active: false },
-    { src: "/img-gallery-3.png", alt: "Excavator thumbnail 3", active: false },
-    { src: "/img-gallery-4.png", alt: "Excavator thumbnail 4", active: false },
-    { src: "/img-gallery-5.png", alt: "Excavator thumbnail 5", active: false },
+export const galleryItems = [
+    { type: 'image', src: '/Image-Machine/img-gallery-1.jpeg', alt: 'Excavator image 1' },
+    { type: 'image', src: '/Image-Machine/img-gallery-2.jpeg', alt: 'Excavator image 2' },
+    { type: 'image', src: '/Image-Machine/img-gallery-3.jpeg', alt: 'Excavator image 3' },
+    { type: 'image', src: '/Image-Machine/img-gallery-4.jpeg', alt: 'Excavator image 4' },
+    { type: 'image', src: '/Image-Machine/img-gallery-5.jpeg', alt: 'Excavator image 5' },
+    { type: 'image', src: '/Image-Machine/img-gallery-6.jpeg', alt: 'Excavator image 6' },
+    { type: 'image', src: '/Image-Machine/img-gallery-7.jpeg', alt: 'Excavator image 7' },
+    { type: 'image', src: '/Image-Machine/img-gallery-8.jpeg', alt: 'Excavator image 8' },
+    { type: 'image', src: '/Image-Machine/img-gallery-9.jpeg', alt: 'Excavator image 9' },
+    { type: 'image', src: '/Image-Machine/img-gallery-10.jpeg', alt: 'Excavator image 10' },
+    { type: 'image', src: '/Image-Machine/img-gallery-11.jpeg', alt: 'Excavator image 11' },
+    { type: 'image', src: '/Image-Machine/img-gallery-12.jpeg', alt: 'Excavator image 12' },
+    { type: 'image', src: '/Image-Machine/img-gallery-13.jpeg', alt: 'Excavator image 13' },
+    { type: 'image', src: '/Image-Machine/img-gallery-14.jpeg', alt: 'Excavator image 14' },
+    { type: 'video', src: '/Image-Machine/video-gallery-1.mp4', poster: '/Image-Machine/img-gallery-1.jpeg', alt: 'Excavator video 1' },
+    { type: 'video', src: '/Image-Machine/video-gallery-2.mp4', poster: '/Image-Machine/img-gallery-2.jpeg', alt: 'Excavator video 2' },
+    { type: 'video', src: '/Image-Machine/video-gallery-3.mp4', poster: '/Image-Machine/img-gallery-3.jpeg', alt: 'Excavator video 3' },
 ];
 
 // Features list data
@@ -61,16 +67,16 @@ export const features = [
 
 // Specifications data
 export const specifications = [
-    { label: "Weight:", value: "5710kg" },
-    { label: "Rated power:", value: "36.9kW / 2200rpm" },
-    { label: "Standard bucket capacity:", value: "0.2m3" },
-    { label: "Standard bucket width:", value: "775mm" },
-    { label: "Operation Hydraulic Pressure:", value: "24.5Mpa" },
-    { label: "Maximum Digging Force:", value: "37.4kN" },
-    { label: "Gradeadility:", value: "30°" },
-    { label: "Pressure To The Ground:", value: "31.4kPa" },
-    { label: "Walking Speed:", value: "2.8/4.7 km/h" },
-    { label: "Maximum Hauling Force:", value: "44kN" },
-    { label: "Swing Speed Of Platform:", value: "10.4 rpm" },
+    { label: "Brand:", value: "Fiat" },
+    { label: "Model:", value: "Hitachi FH300 LC" },
+    { label: "Year:", value: "1992" },
+    { label: "Weight:", value: "30 ton" },
+    { label: "Type:", value: "Pelle grande portée" },
+    { label: "Arm configuration:", value: "3 flèches" },
+    { label: "Reach:", value: "10 mètres" },
+    { label: "Maximum digging depth:", value: "3 mètres" },
+    { label: "Maximum digging force:", value: "44kN" },
+    { label: "Swing speed:", value: "10.4 rpm" },
+    { label: "Walking speed:", value: "2.8/4.7 km/h" },
 ];
 

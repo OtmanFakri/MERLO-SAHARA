@@ -23,47 +23,32 @@ import {
 } from "@/app//components/ui/select";
 import {Separator} from "@/app//components/ui/separator";
 import {Badge} from "@/app/components/ui/badge";
+import Link from "next/link";
 
 export const EquipmentListingSection = () => {
     // Data for subcategories
     const subcategories = [
-        "Mini Excavator Upto 5T",
-        "Standard Excavator 5T to 20T",
-        "Large Excavator 20T",
-        "Long Reach Excavator",
-        "Special Attachment Excavator",
-        "Zero Emission Excavator",
+        'Mini-pelle jusqu\'à 5 tonnes',
+        'Pelle standard de 5 à 20 tonnes',
+        'Grande pelle de 20 tonnes',
+        'Pelle longue portée',
+        'Pelle à accessoires spéciaux',
+        'Pelle zéro émission',
     ];
 
     // Data for equipment cards
     const equipmentCards = [
         {
             id: 1,
-            title: "Standard Excavator 8T",
-            image: "/standard-excavator-8t.png",
-            brand: "Wacker Neuson",
-            model: "EZ17",
-            mfgYear: "2019",
-            operatingWeight: "1.7 Ton",
+            title: "Pelle Grande Portée 30T",
+            image: "Image-Machine/img-gallery-1.jpeg",
+            brand: "Fiat",
+            model: "Hitachi FH300 LC",
+            mfgYear: "1992",
+            operatingWeight: "30 Ton",
+            features: ["3 flèches", "Portée de 10 mètres"],
             price: "$425.00",
             originalPrice: "$899.00",
-            dayRate: "$125 / Day",
-            weekRate: "$425 / Week",
-            monthRate: "$1350 / Month",
-        },
-        {
-            id: 2,
-            title: "Dim Breaker Excavator",
-            image: "/dim-breaker-excavator.png",
-            brand: "Wacker Neuson",
-            model: "EZ17",
-            mfgYear: "2019",
-            operatingWeight: "1.7 Ton",
-            price: "$425.00",
-            originalPrice: "$899.00",
-            dayRate: "$125 / Day",
-            weekRate: "$425 / Week",
-            monthRate: "$1350 / Month",
         },
     ];
 
@@ -223,7 +208,7 @@ export const EquipmentListingSection = () => {
                                             {subcategories.map((category, index) => (
                                                 <a
                                                     key={index}
-                                                    href="https://pro-theme.com/html/suprek/06_all-equipments-grid.html"
+                                                    href=" "
                                                     className="flex items-center w-full py-1"
                                                     rel="noopener noreferrer"
                                                     target="_blank"
@@ -491,7 +476,7 @@ export const EquipmentListingSection = () => {
                                         <CardContent className="p-[30px]">
                                             <h3 className="font-bold text-[#222222] text-2xl leading-[31.9px]">
                                                 <a
-                                                    href="https://pro-theme.com/html/suprek/07_equipment-detail.html"
+                                                    href=""
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                 >
@@ -501,7 +486,7 @@ export const EquipmentListingSection = () => {
 
                                             <div className="flex items-center mt-3">
                                                 <a
-                                                    href="https://pro-theme.com/html/suprek/03_equipment-categories.html"
+                                                    href=""
                                                     className="text-pro-themecomcorn text-sm font-normal"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
@@ -513,7 +498,7 @@ export const EquipmentListingSection = () => {
                                                     className="mx-3 h-4 bg-[#dfdfdf]"
                                                 />
                                                 <a
-                                                    href="https://pro-theme.com/html/suprek/04_equipment-categories.html"
+                                                    href=""
                                                     className="text-pro-themecomcorn text-sm font-normal"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
@@ -604,10 +589,11 @@ export const EquipmentListingSection = () => {
                                         <CardFooter className="p-0">
                                             <Button
                                                 className="w-full h-[55px] rounded-sm border border-solid border-[#222222] bg-transparent text-[#222222] hover:bg-[#222222] hover:text-white">
-                        <span
-                            className="font-pro-theme-com-barlow-bold-upper text-[length:var(--pro-theme-com-barlow-bold-upper-font-size)] leading-[var(--pro-theme-com-barlow-bold-upper-line-height)]">
-                          BOOK NOW
-                        </span>
+                                                <Link
+                                                    href={'/card.id'}
+                                                    className="font-pro-theme-com-barlow-bold-upper text-[length:var(--pro-theme-com-barlow-bold-upper-font-size)] leading-[var(--pro-theme-com-barlow-bold-upper-line-height)]">
+                                                  BOOK NOW
+                                                </Link>
                                                 <ArrowRightIcon className="w-5 h-5 ml-2"/>
                                             </Button>
                                         </CardFooter>
@@ -629,7 +615,7 @@ export const EquipmentListingSection = () => {
                                     className="w-[55px] h-[55px] ml-2.5 rounded-sm border border-solid border-[#eeeeee]"
                                 >
                                     <a
-                                        href="https://pro-theme.com/html/suprek/06_all-equipments-grid.html"
+                                        href=" "
                                         rel="noopener noreferrer"
                                         target="_blank"
                                         className="font-pro-theme-com-barlow-medium-upper text-[length:var(--pro-theme-com-barlow-medium-upper-font-size)] leading-[var(--pro-theme-com-barlow-medium-upper-line-height)]"
@@ -642,7 +628,7 @@ export const EquipmentListingSection = () => {
                                     className="w-[55px] h-[55px] ml-2.5 rounded-sm border border-solid border-[#eeeeee]"
                                 >
                                     <a
-                                        href="https://pro-theme.com/html/suprek/06_all-equipments-grid.html"
+                                        href=" "
                                         rel="noopener noreferrer"
                                         target="_blank"
                                         className="font-pro-theme-com-barlow-medium-upper text-[length:var(--pro-theme-com-barlow-medium-upper-font-size)] leading-[var(--pro-theme-com-barlow-medium-upper-line-height)]"
