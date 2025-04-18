@@ -5,64 +5,24 @@ import {
   ShoppingCartIcon,
 } from "lucide-react";
 import React from "react";
-import { Button } from "../../../../components/ui/button";
+import { Button } from "@/app//components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from "../../../../components/ui/navigation-menu";
+} from "@/app//components/ui/navigation-menu";
+import {navigationLinks, socialIcons} from "@/app/constents/constents";
 
-// Define navigation links for reusability
-const navigationLinks = [
-  {
-    text: "Home",
-    href: "https://pro-theme.com/html/suprek/01_home.html",
-    active: false,
-  },
-  {
-    text: "Equipments",
-    href: "https://pro-theme.com/html/suprek/03_equipment-categories.html",
-    active: true,
-  },
-  {
-    text: "Our Solutions",
-    href: "https://pro-theme.com/html/suprek/07_equipment-detail.html",
-    active: false,
-  },
-  {
-    text: "About",
-    href: "https://pro-theme.com/html/suprek/11_about-us.html",
-    active: false,
-  },
-  {
-    text: "News",
-    href: "https://pro-theme.com/html/suprek/08_blog-grid.html",
-    active: false,
-  },
-  {
-    text: "Contact",
-    href: "https://pro-theme.com/html/suprek/12_contact-us.html",
-    active: false,
-  },
-];
 
-// Define social media icons
-const socialIcons = [
-  { src: "/component-1-8.svg", alt: "Social Icon 1" },
-  { src: "/component-1-7.svg", alt: "Social Icon 2" },
-  { src: "/component-1-5.svg", alt: "Social Icon 3" },
-  { src: "/component-1-10.svg", alt: "Social Icon 4" },
-  { src: "/component-1-13.svg", alt: "Social Icon 5" },
-];
 
-export const HeaderSection = (): JSX.Element => {
+export const HeaderSection = () => {
   return (
     <header className="flex flex-col w-full border-b border-[#eeeeee]">
       {/* Top bar with contact info and social media */}
       <div className="bg-[#222222] w-full">
         <div className="max-w-screen-xl mx-auto px-10 py-3">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center text-white">
             {/* Contact information */}
             <div className="flex items-center space-x-5">
               {/* Address */}
@@ -103,16 +63,16 @@ export const HeaderSection = (): JSX.Element => {
                   key={index}
                   className="flex items-center justify-center w-9 h-9 rounded-[18px] ml-[5px]"
                 >
-                  <img className="w-5 h-5" alt={icon.alt} src={icon.src} />
+                  <img className="w-5 h-5 invert" alt={icon.alt} src={icon.src} />
                 </div>
               ))}
             </div>
 
             {/* Call us section */}
-            <div className="relative bg-pro-themecomcorn px-[30px] py-3">
-              <div className="absolute w-2 h-2 top-[57px] -left-2 border-r-8 border-b-8 border-transparent [border-image:linear-gradient(45deg,rgba(0,0,0,1)_0%,rgba(150,111,12,1)_0%)_1]" />
+            <div className="relative  px-[30px] py-3">
+              {/*<div className="absolute w-2 h-2 top-[57px] -left-2 border-r-8 border-b-8 border-transparent [border-image:linear-gradient(45deg,rgba(0,0,0,1)_0%,rgba(150,111,12,1)_0%)_1]" />*/}
 
-              <div className="flex items-center pl-[50px] [background:url(..//component-3.png)_50%_50%_/_cover]">
+              <div className="flex items-center pl-[50px] ]">
                 <div>
                   <div className="text-bananistyle text-sm font-medium leading-[14px]">
                     Need Help? Call Us
@@ -123,7 +83,7 @@ export const HeaderSection = (): JSX.Element => {
                 </div>
               </div>
 
-              <div className="absolute w-2 h-2 top-[57px] left-[242px] border-t-8 border-r-8 border-transparent [border-image:linear-gradient(135deg,rgba(150,111,12,1)_0%,rgba(0,0,0,1)_0%)_1]" />
+              {/*<div className="absolute w-2 h-2 top-[57px] left-[242px] border-t-8 border-r-8 border-transparent [border-image:linear-gradient(135deg,rgba(150,111,12,1)_0%,rgba(0,0,0,1)_0%)_1]" />*/}
             </div>
           </div>
         </div>
@@ -142,33 +102,35 @@ export const HeaderSection = (): JSX.Element => {
             <NavigationMenu className="mx-auto">
               <NavigationMenuList className="flex">
                 {navigationLinks.map((link, index) => (
-                  <NavigationMenuItem key={index}>
-                    <NavigationMenuLink
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex min-h-[50px] items-center justify-center px-[15px] py-2 font-pro-theme-com-barlow-semibold text-xl ${
-                        link.active ? "text-pro-themecomcorn" : "text-[#222222]"
-                      }`}
-                    >
-                      {link.active && "["}
-                      {link.text}
-                      {link.active && "]"}
-                      {link.active && (
-                        <div className="absolute top-[-19px] left-[43px]">
-                          <img
-                            className="w-5 h-5"
-                            alt="Component"
-                            src="/component-1-26.svg"
-                          />
-                        </div>
-                      )}
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
+                    <NavigationMenuItem key={index}>
+                      <NavigationMenuLink
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`flex min-h-[50px] items-center justify-center px-[15px] py-2 font-pro-theme-com-barlow-semibold text-xl 
+            ${
+                              link.active
+                                  ? "text-yellow-500" // Active link is yellow
+                                  : "text-[#222222] hover:text-yellow-500" // Non-active links are black, yellow on hover
+                          } transition-colors duration-200`} // Smooth transition for hover
+                      >
+                        {link.active && "["}
+                        {link.text}
+                        {link.active && "]"}
+                        {/*{link.active && (*/}
+                        {/*    <div className="absolute top-[-19px] left-[43px]">*/}
+                        {/*      <img*/}
+                        {/*          className="w-5 h-5"*/}
+                        {/*          alt="Component"*/}
+                        {/*          src="/component-1-26.svg"*/}
+                        {/*      />*/}
+                        {/*    </div>*/}
+                        {/*)}*/}
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
                 ))}
               </NavigationMenuList>
             </NavigationMenu>
-
             {/* Search and cart buttons */}
             <div className="flex items-center space-x-4">
               <Button
