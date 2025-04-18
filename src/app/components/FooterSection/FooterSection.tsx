@@ -16,27 +16,27 @@ import {Separator} from "@/app/components/ui/separator";
 const solutionsLinks = [
     {
         text: "Safe Walls System",
-        href: "https://pro-theme.com/html/suprek/page-typography.html",
+        href: "",
     },
     {
         text: "Climate Control",
-        href: "https://pro-theme.com/html/suprek/page-typography.html",
+        href: "",
     },
     {
         text: "Health Care",
-        href: "https://pro-theme.com/html/suprek/page-typography.html",
+        href: "",
     },
     {
         text: "Entertainment",
-        href: "https://pro-theme.com/html/suprek/page-typography.html",
+        href: "",
     },
     {
         text: "Power Generation",
-        href: "https://pro-theme.com/html/suprek/page-typography.html",
+        href: "",
     },
     {
         text: "Industrial Lighting",
-        href: "https://pro-theme.com/html/suprek/page-typography.html",
+        href: "",
     },
 ];
 
@@ -44,27 +44,27 @@ const solutionsLinks = [
 const companyLinks = [
     {
         text: "About Suprek Rental",
-        href: "https://pro-theme.com/html/suprek/page-typography.html",
+        href: " ",
     },
     {
         text: "Latest News",
-        href: "https://pro-theme.com/html/suprek/page-typography.html",
+        href: " ",
     },
     {
         text: "Our Process",
-        href: "https://pro-theme.com/html/suprek/page-typography.html",
+        href: " ",
     },
     {
         text: "Terms & Conditions",
-        href: "https://pro-theme.com/html/suprek/page-typography.html",
+        href: " ",
     },
     {
         text: "Protections & Coverages",
-        href: "https://pro-theme.com/html/suprek/page-typography.html",
+        href: " ",
     },
     {
         text: "Used Equipment Sale",
-        href: "https://pro-theme.com/html/suprek/page-typography.html",
+        href: " ",
     },
 ];
 
@@ -73,13 +73,13 @@ const newsItems = [
     {
         date: "MARCH 12, 2021",
         title: "Safe Driving Tips from Our Drivers ...",
-        href: "https://pro-theme.com/html/suprek/10_blog-post.html",
+        href: " ",
         image: "/news.png",
     },
     {
         date: "MARCH 12, 2021",
         title: "Basic Tips to Motivate Your Team ...",
-        href: "https://pro-theme.com/html/suprek/10_blog-post.html",
+        href: " ",
         image: "/news-1.png",
     },
 ];
@@ -297,7 +297,7 @@ export const FooterSection = () => {
                     <div className="flex items-center gap-4">
                         <a
                             className="font-pro-theme-com-barlow-light-underline text-pro-themecomwhite-30 underline"
-                            href="https://pro-theme.com/html/suprek/page-typography.html"
+                            href=" "
                             rel="noopener noreferrer"
                             target="_blank"
                         >

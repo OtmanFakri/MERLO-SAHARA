@@ -1,4 +1,4 @@
-
+'use client'
 import {
     ArrowRightIcon,
     ClockIcon,
@@ -7,7 +7,7 @@ import {
     MapPinIcon,
     PhoneIcon,
 } from "lucide-react";
-import React from "react";
+import React, {useState} from "react";
 import { AspectRatio } from "@/app/components/ui/details/aspect-ratio";
 import { Button } from "@/app/components/ui/button";
 import {
@@ -25,7 +25,8 @@ import {
     TableRow,
 } from "@/app/components/ui/details/table";
 import { Textarea } from "@/app/components/ui/details/textarea";
-import {features, galleryImages, specifications} from "@/app/constents/constents";
+import Image from 'next/image'
+import {features, galleryItems, specifications} from "@/app/constents/constents";
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -37,27 +38,50 @@ import {
 const contactInfo = [
     {
         icon: <MapPinIcon className="w-5 h-5" />,
-        content: "Suprek Equip. Rentals",
+        content: "merlo-sahara Equip. Rentals",
         subContent: "354 Oakridge Lane, Camden\nNew Jersey 08102 - USA",
         link: "https://goo.gl/maps/RwFh5b8Po1pdxBS19",
     },
     {
         icon: <PhoneIcon className="w-5 h-5" />,
         content: "298-345-0088",
-        link: "#",
+        link: "https://wa.me/1XXXXXXXXXX",
     },
     {
         icon: <ClockIcon className="w-5 h-5" />,
         content: "8:00am - 5:00pm - Sat Closed",
-        link: "https://pro-theme.com/html/suprek/07_equipment-detail.html#!",
+        link: "",
     },
     {
         icon: <MailIcon className="w-5 h-5" />,
-        content: "rentals@suprek.com",
-        link: "mailto:rentals@suprek.com",
+        content: "rentals@merlo-sahara.com",
+        link: "mailto:rentals@merlo-sahara.com",
     },
 ];
 export default function Page() {
+    const [currentItemIndex, setCurrentItemIndex] = useState(0);
+
+    // Handle Previous button click
+    const handlePrevious = () => {
+        setCurrentItemIndex((prevIndex) =>
+            prevIndex === 0 ? galleryItems.length - 1 : prevIndex - 1
+        );
+    };
+
+    // Handle Next button click
+    const handleNext = () => {
+        setCurrentItemIndex((prevIndex) =>
+            prevIndex === galleryItems.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    // Handle thumbnail click
+    const handleThumbnailClick = (index:number) => {
+        setCurrentItemIndex(index);
+    };
+
+    // Get the current item
+    const currentItem = galleryItems[currentItemIndex];
     return (
         <div className="flex flex-col min-w-80 max-w-[1920px] min-h-screen bg-bananistyle">
             <div
@@ -104,17 +128,36 @@ export default function Page() {
                             <div className="flex flex-col w-full lg:w-[826px] px-4 lg:pl-10 lg:pr-0">
                                 {/* Image Gallery */}
                                 <div className="mb-10">
+                                    {/* Main Display (Image or Video) */}
                                     <div className="relative">
                                         <AspectRatio
                                             ratio={16 / 9}
                                             className="bg-gray-100 rounded-md overflow-hidden"
                                         >
-                                            <div
-                                                className="w-full h-full bg-[url(/img-gallery.png)] bg-cover bg-center"/>
+                                            {currentItem.type === 'image' ? (
+                                                <Image
+                                                    src={currentItem.src}
+                                                    alt={currentItem.alt}
+                                                    fill
+                                                    className="w-full h-full object-cover"
+                                                />
+                                            ) : (
+                                                <video
+                                                    src={currentItem.src}
+                                                    poster={'/video-poster.png'}
+                                                    className="w-full h-full object-cover"
+                                                    controls
+                                                    autoPlay
+                                                    muted
+                                                />
+                                            )}
                                         </AspectRatio>
 
+                                        {/* Previous Button */}
                                         <button
-                                            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 p-2.5 rounded-md">
+                                            onClick={handlePrevious}
+                                            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 p-2.5 rounded-md"
+                                        >
                                             <img
                                                 className="w-3.5 h-6"
                                                 alt="Previous"
@@ -122,8 +165,11 @@ export default function Page() {
                                             />
                                         </button>
 
+                                        {/* Next Button */}
                                         <button
-                                            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 p-2.5 rounded-md">
+                                            onClick={handleNext}
+                                            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 p-2.5 rounded-md"
+                                        >
                                             <img
                                                 className="w-3.5 h-6"
                                                 alt="Next"
@@ -134,24 +180,36 @@ export default function Page() {
 
                                     {/* Thumbnails */}
                                     <div className="flex mt-5 overflow-x-auto">
-                                        {galleryImages.slice(1).map((image, index) => (
+                                        {galleryItems.map((item, index) => (
                                             <div
                                                 key={index}
-                                                className="flex-shrink-0 px-[15px] first:pl-0"
+                                                className="flex-shrink-0 px-4 first:pl-0"
+                                                onClick={() => handleThumbnailClick(index)}
                                             >
-                                                <div className="relative">
-                                                    <div
-                                                        className={`w-[145px] h-[87px] bg-cover bg-center bg-[url(${image.src})]`}
+                                                <div className="relative cursor-pointer">
+                                                    <img
+                                                        src={item.type === 'image' ? item.src : item.poster}
+                                                        alt={item.alt}
+                                                        className={`w-36 h-20 object-cover ${
+                                                            currentItemIndex !== index ? 'opacity-50' : 'opacity-100'
+                                                        }`}
                                                     />
-                                                    {!image.active && (
-                                                        <div className="absolute inset-0 bg-pro-themecomwhite-40"/>
+                                                    {item.type === 'video' && (
+                                                        <div className="absolute inset-0 flex items-center justify-center">
+                                                            <svg
+                                                                className="w-8 h-8 text-white opacity-80"
+                                                                fill="currentColor"
+                                                                viewBox="0 0 24 24"
+                                                            >
+                                                                <path d="M8 5v14l11-7z" />
+                                                            </svg>
+                                                        </div>
                                                     )}
                                                 </div>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
-
                                 {/* Product Title */}
                                 <h1 className="font-['Barlow',Helvetica] font-bold text-[#222222] text-4xl leading-[56px] mb-4">
                                     Caterpillar 345 GC Excavator
@@ -171,50 +229,50 @@ export default function Page() {
                                         Description
                                     </h2>
 
-                                    <h3 className="font-pro-theme-com-semantic-heading-5 text-pro-themecommine-shaft text-[16px] leading-[22px] mb-4">
-                                        Best Yanmar powered hydraulic excavator for rent.
-                                    </h3>
+                                    {/*<h3 className="font-pro-theme-com-semantic-heading-5 text-pro-themecommine-shaft text-[16px] leading-[22px] mb-4">*/}
+                                    {/*    Best Yanmar powered hydraulic excavator for rent.*/}
+                                    {/*</h3>*/}
 
-                                    <p className="font-['Barlow',Helvetica] font-light text-pro-themecomemperor text-lg leading-7 mb-6">
-                                        Sed ut perspiciatis unde omnis iste natus error sit
-                                        voluptatem accusantium dolore mque laud antium,
-                                        <br/>
-                                        totam rem aperiam, eaque ipsa quae ab illo inventore
-                                        veritatis et quasi architecto be atae vitae dicta
-                                        <br/>
-                                        sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                                        aspernatur aut odit aut fugit, sed quia
-                                        <br/>
-                                        consequuntur magni dolores.
-                                    </p>
+                                    {/*<p className="font-['Barlow',Helvetica] font-light text-pro-themecomemperor text-lg leading-7 mb-6">*/}
+                                    {/*    Sed ut perspiciatis unde omnis iste natus error sit*/}
+                                    {/*    voluptatem accusantium dolore mque laud antium,*/}
+                                    {/*    <br/>*/}
+                                    {/*    totam rem aperiam, eaque ipsa quae ab illo inventore*/}
+                                    {/*    veritatis et quasi architecto be atae vitae dicta*/}
+                                    {/*    <br/>*/}
+                                    {/*    sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit*/}
+                                    {/*    aspernatur aut odit aut fugit, sed quia*/}
+                                    {/*    <br/>*/}
+                                    {/*    consequuntur magni dolores.*/}
+                                    {/*</p>*/}
 
-                                    <p className="font-['Barlow',Helvetica] font-light text-pro-themecomemperor text-lg leading-7 mb-6">
-                                        Eos qui ratione voluptatem sequi nesciunt. Neque porro
-                                        quisquam es qui dolorem ipsum quia dolor sit
-                                        <br/>
-                                        amet consectetur, adipisci velit sed quia non numquam eius
-                                        modiy.
-                                    </p>
+                                    {/*<p className="font-['Barlow',Helvetica] font-light text-pro-themecomemperor text-lg leading-7 mb-6">*/}
+                                    {/*    Eos qui ratione voluptatem sequi nesciunt. Neque porro*/}
+                                    {/*    quisquam es qui dolorem ipsum quia dolor sit*/}
+                                    {/*    <br/>*/}
+                                    {/*    amet consectetur, adipisci velit sed quia non numquam eius*/}
+                                    {/*    modiy.*/}
+                                    {/*</p>*/}
 
                                     {/* Features List */}
                                     <ul className="space-y-1 mt-6">
-                                        {features.map((feature, index) => (
-                                            <li key={index} className="flex items-center">
-                                                <div className="w-[31px] flex items-center">
-                                                    <div className="w-[17px] h-[17px] relative">
-                                                        <img
-                                                            className="w-5 h-5"
-                                                            alt="Check"
-                                                            src="/component-1-3.svg"
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <span
-                                                    className="font-['Barlow',Helvetica] font-light text-pro-themecomemperor text-lg leading-7 truncate">
-                          {feature}
-                        </span>
-                                            </li>
-                                        ))}
+                        {/*                {features.map((feature, index) => (*/}
+                        {/*                    <li key={index} className="flex items-center">*/}
+                        {/*                        <div className="w-[31px] flex items-center">*/}
+                        {/*                            <div className="w-[17px] h-[17px] relative">*/}
+                        {/*                                <img*/}
+                        {/*                                    className="w-5 h-5"*/}
+                        {/*                                    alt="Check"*/}
+                        {/*                                    src="/component-1-3.svg"*/}
+                        {/*                                />*/}
+                        {/*                            </div>*/}
+                        {/*                        </div>*/}
+                        {/*                        <span*/}
+                        {/*                            className="font-['Barlow',Helvetica] font-light text-pro-themecomemperor text-lg leading-7 truncate">*/}
+                        {/*  {feature}*/}
+                        {/*</span>*/}
+                        {/*                    </li>*/}
+                        {/*                ))}*/}
                                     </ul>
                                 </div>
 
@@ -333,39 +391,39 @@ export default function Page() {
                                             ))}
                                         </div>
 
-                                        <div className="mt-10 space-y-4">
-                                            <Button
-                                                className="w-full h-[55px] bg-[#efb007] hover:bg-[#d69e06] rounded-sm text-bananistyle justify-between px-10"
-                                                asChild
-                                            >
-                                                <a
-                                                    href="https://pro-theme.com/html/suprek/07_equipment-detail.html#!"
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                          <span className="font-pro-theme-com-barlow-light-upper text-[18px] leading-[53px]">
-                            DOWNLOAD FLYER
-                          </span>
-                                                    <DownloadIcon className="w-5 h-5"/>
-                                                </a>
-                                            </Button>
+                          {/*              <div className="mt-10 space-y-4">*/}
+                          {/*                  <Button*/}
+                          {/*                      className="w-full h-[55px] bg-[#efb007] hover:bg-[#d69e06] rounded-sm text-bananistyle justify-between px-10"*/}
+                          {/*                      asChild*/}
+                          {/*                  >*/}
+                          {/*                      <a*/}
+                          {/*                          href="https://pro-theme.com/html/merlo-sahara/07_equipment-detail.html#!"*/}
+                          {/*                          target="_blank"*/}
+                          {/*                          rel="noopener noreferrer"*/}
+                          {/*                      >*/}
+                          {/*<span className="font-pro-theme-com-barlow-light-upper text-[18px] leading-[53px]">*/}
+                          {/*  DOWNLOAD FLYER*/}
+                          {/*</span>*/}
+                          {/*                          <DownloadIcon className="w-5 h-5"/>*/}
+                          {/*                      </a>*/}
+                          {/*                  </Button>*/}
 
-                                            <Button
-                                                className="w-full h-[55px] bg-[#efb007] hover:bg-[#d69e06] rounded-sm text-bananistyle justify-between px-10"
-                                                asChild
-                                            >
-                                                <a
-                                                    href="https://pro-theme.com/html/suprek/07_equipment-detail.html#!"
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                          <span className="font-pro-theme-com-barlow-light-upper text-[18px] leading-[53px]">
-                            ASK FINANCE QUOTE
-                          </span>
-                                                    <ArrowRightIcon className="w-5 h-5"/>
-                                                </a>
-                                            </Button>
-                                        </div>
+                          {/*                  <Button*/}
+                          {/*                      className="w-full h-[55px] bg-[#efb007] hover:bg-[#d69e06] rounded-sm text-bananistyle justify-between px-10"*/}
+                          {/*                      asChild*/}
+                          {/*                  >*/}
+                          {/*                      <a*/}
+                          {/*                          href="https://pro-theme.com/html/merlo-sahara/07_equipment-detail.html#!"*/}
+                          {/*                          target="_blank"*/}
+                          {/*                          rel="noopener noreferrer"*/}
+                          {/*                      >*/}
+                          {/*<span className="font-pro-theme-com-barlow-light-upper text-[18px] leading-[53px]">*/}
+                          {/*  ASK FINANCE QUOTE*/}
+                          {/*</span>*/}
+                          {/*                          <ArrowRightIcon className="w-5 h-5"/>*/}
+                          {/*                      </a>*/}
+                          {/*                  </Button>*/}
+                          {/*              </div>*/}
                                     </CardContent>
                                 </Card>
 
