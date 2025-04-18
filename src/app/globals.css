@@ -1,3 +1,156 @@
 @import "tailwindcss";
-/*@import "./talwind.css";*/
 
+@theme {
+    /* Custom Colors */
+    --color-bananistyle: var(--bananistyle, rgba(255, 255, 255, 1));
+    --color-pro-themecomalabaster: var(--pro-themecomalabaster, rgba(248, 248, 248, 1));
+    --color-pro-themecomalto: var(--pro-themecomalto, rgba(221, 221, 221, 1));
+    --color-pro-themecomblack: var(--pro-themecomblack, rgba(0, 0, 0, 1));
+    --color-pro-themecombuddha-gold: var(--pro-themecombuddha-gold, rgba(214, 158, 6, 1));
+    --color-pro-themecomcorn: var(--pro-themecomcorn, rgba(239, 176, 7, 1));
+    --color-pro-themecomdove-gray-50: var(--pro-themecomdove-gray-50, rgba(102, 102, 102, 0.5));
+    --color-pro-themecomdove-gray-90: var(--pro-themecomdove-gray-90, rgba(102, 102, 102, 0.9));
+    --color-pro-themecomemperor: var(--pro-themecomemperor, rgba(85, 85, 85, 1));
+    --color-pro-themecomgallery: var(--pro-themecomgallery, rgba(238, 238, 238, 1));
+    --color-pro-themecomgray: var(--pro-themecomgray, rgba(136, 136, 136, 1));
+    --color-pro-themecommercury: var(--pro-themecommercury, rgba(223, 225, 238, 1));
+    --color-pro-themecommine-shaft: var(--pro-themecommine-shaft, rgba(51, 51, 51, 1));
+    --color-pro-themecomwhite-40: var(--pro-themecomwhite-40, rgba(255, 255, 255, 0.4));
+    --color-border: hsl(var(--border, 214.3 31.8% 91.4%));
+    --color-input: hsl(var(--input, 214.3 31.8% 91.4%));
+    --color-ring: hsl(var(--ring, 215 20.2% 65.1%));
+    --color-background: hsl(var(--background, 0 0% 100%));
+    --color-foreground: hsl(var(--foreground, 222.2 47.4% 11.2%));
+    --color-primary: hsl(var(--primary, 222.2 47.4% 11.2%));
+    --color-primary-foreground: hsl(var(--primary-foreground, 210 40% 98%));
+    --color-secondary: hsl(var(--secondary, 210 40% 96.1%));
+    --color-secondary-foreground: hsl(var(--secondary-foreground, 222.2 47.4% 11.2%));
+    --color-destructive: hsl(var(--destructive, 0 100% 50%));
+    --color-destructive-foreground: hsl(var(--destructive-foreground, 210 40% 98%));
+    --color-muted: hsl(var(--muted, 210 40% 96.1%));
+    --color-muted-foreground: hsl(var(--muted-foreground, 215.4 16.3% 46.9%));
+    --color-accent: hsl(var(--accent, 210 40% 96.1%));
+    --color-accent-foreground: hsl(var(--accent-foreground, 222.2 47.4% 11.2%));
+    --color-popover: hsl(var(--popover, 0 0% 100%));
+    --color-popover-foreground: hsl(var(--popover-foreground, 222.2 47.4% 11.2%));
+    --color-card: hsl(var(--card, transparent));
+    --color-card-foreground: hsl(var(--card-foreground, 222.2 47.4% 11.2%));
+
+    /* Custom Font Families */
+    --font-pro-theme-com-barlow-bold: var(--pro-theme-com-barlow-bold-font-family, "Barlow", Helvetica);
+    --font-pro-theme-com-barlow-bold-upper: var(--pro-theme-com-barlow-bold-upper-font-family, "Barlow", Helvetica);
+    --font-pro-theme-com-barlow-light-upper: var(--pro-theme-com-barlow-light-upper-font-family, "Barlow", Helvetica);
+    --font-pro-theme-com-barlow-regular: var(--pro-theme-com-barlow-regular-font-family, "Barlow", Helvetica);
+    --font-pro-theme-com-barlow-regular-strikethrough: var(--pro-theme-com-barlow-regular-strikethrough-font-family, "Barlow", Helvetica);
+    --font-pro-theme-com-semantic-heading-3: var(--pro-theme-com-semantic-heading-3-font-family, "Barlow", Helvetica);
+    --font-pro-theme-com-semantic-heading-5: var(--pro-theme-com-semantic-heading-5-font-family, "Barlow", Helvetica);
+    --font-pro-theme-com-semantic-input: var(--pro-theme-com-semantic-input-font-family, "Barlow", Helvetica);
+    --font-pro-theme-com-semantic-link: var(--pro-theme-com-semantic-link-font-family, "Barlow", Helvetica);
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    /* Custom Border Radii */
+    --radius-lg: var(--radius, 0.5rem);
+    --radius-md: calc(var(--radius, 0.5rem) - 2px);
+    --radius-sm: calc(var(--radius, 0.5rem) - 4px);
+
+    /* Custom Keyframes */
+    --keyframe-accordion-down: {
+        from { height: 0 }
+        to { height: var(--radix-accordion-content-height) }
+    };
+    --keyframe-accordion-up: {
+        from { height: var(--radix-accordion-content-height) }
+        to { height: 0 }
+    };
+
+    /* Custom Animations */
+    --animation-accordion-down: accordion-down 0.2s ease-out;
+    --animation-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 47.4% 11.2%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --card: transparent;
+        --card-foreground: 222.2 47.4% 11.2%;
+        --primary: 222.2 47.4% 11.2%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 100% 50%;
+        --destructive-foreground: 210 40% 98%;
+        --ring: 215 20.2% 65.1%;
+        --radius: 0.5rem;
+        /* Your custom variables */
+        --bananistyle: rgba(255, 255, 255, 1);
+        --pro-themecomalabaster: rgba(248, 248, 248, 1);
+        --pro-themecomalto: rgba(221, 221, 221, 1);
+        --pro-themecomblack: rgba(0, 0, 0, 1);
+        --pro-themecombuddha-gold: rgba(214, 158, 6, 1);
+        --pro-themecomcorn: rgba(239, 176, 7, 1);
+        --pro-themecomdove-gray-50: rgba(102, 102, 102, 0.5);
+        --pro-themecomdove-gray-90: rgba(102, 102, 102, 0.9);
+        --pro-themecomemperor: rgba(85, 85, 85, 1);
+        --pro-themecomgallery: rgba(238, 238, 238, 1);
+        --pro-themecomgray: rgba(136, 136, 136, 1);
+        --pro-themecommercury: rgba(223, 225, 238, 1);
+        --pro-themecommine-shaft: rgba(51, 51, 51, 1);
+        --pro-themecomwhite-40: rgba(255, 255, 255, 0.4);
+        --pro-theme-com-barlow-bold-font-family: "Barlow", Helvetica;
+        --pro-theme-com-barlow-bold-upper-font-family: "Barlow", Helvetica;
+        --pro-theme-com-barlow-light-upper-font-family: "Barlow", Helvetica;
+        --pro-theme-com-barlow-regular-font-family: "Barlow", Helvetica;
+        --pro-theme-com-barlow-regular-strikethrough-font-family: "Barlow", Helvetica;
+        --pro-theme-com-semantic-heading-3-font-family: "Barlow", Helvetica;
+        --pro-theme-com-semantic-heading-5-font-family: "Barlow", Helvetica;
+        --pro-theme-com-semantic-input-font-family: "Barlow", Helvetica;
+        --pro-theme-com-semantic-link-font-family: "Barlow", Helvetica;
+    }
+
+    .dark {
+        --background: 224 71% 4%;
+        --foreground: 213 31% 91%;
+        --muted: 223 47% 11%;
+        --muted-foreground: 215.4 16.3% 56.9%;
+        --accent: 216 34% 17%;
+        --accent-foreground: 210 40% 98%;
+        --popover: 224 71% 4%;
+        --popover-foreground: 215 20.2% 65.1%;
+        --border: 216 34% 17%;
+        --input: 216 34% 17%;
+        --card: transparent;
+        --card-foreground: 213 31% 91%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 1.2%;
+        --secondary: 222.2 47.4% 11.2%;
+        --secondary-foreground: 210 40% 98%;
+        --destructive: 0 63% 31%;
+        --destructive-foreground: 210 40% 98%;
+        --ring: 216 34% 17%;
+        --radius: 0.5rem;
+    }
+
+    * {
+        border-color: hsl(var(--border));
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer components {
+    .all-\[unset\] {
+        all: unset;
+    }
+}

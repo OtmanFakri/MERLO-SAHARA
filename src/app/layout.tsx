@@ -2,7 +2,6 @@ import type {Metadata} from "next";
 import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 import {HeaderSection} from "@/app/components/HeaderSection/HeaderSection";
-import {EquipmentListingSection} from "@/app/components/EquipmentListingSection/EquipmentListingSection";
 import {FooterSection} from "@/app/components/FooterSection/FooterSection";
 import {SearchFilterSection} from "@/app/components/SearchFilterSection";
 
