@@ -1,3 +1,4 @@
+
 import {
     ArrowRightIcon,
     ClockIcon,
@@ -8,7 +9,7 @@ import {
 } from "lucide-react";
 import React from "react";
 import { AspectRatio } from "@/app/components/ui/details/aspect-ratio";
-import { Button } from "@/app//components/ui/button";
+import { Button } from "@/app/components/ui/button";
 import {
     Card,
     CardContent,
@@ -25,6 +26,13 @@ import {
 } from "@/app/components/ui/details/table";
 import { Textarea } from "@/app/components/ui/details/textarea";
 import {features, galleryImages, specifications} from "@/app/constents/constents";
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbSeparator
+} from "@/app/components/ui/breadcrumb";
 // Contact info data
 const contactInfo = [
     {
@@ -52,6 +60,41 @@ const contactInfo = [
 export default function Page() {
     return (
         <div className="flex flex-col min-w-80 max-w-[1920px] min-h-screen bg-bananistyle">
+            <div
+                className="flex h-[300px] items-center justify-center p-[15px] relative self-stretch w-full bg-[url(/background.png)] bg-cover bg-center">
+                <div className="inline-flex flex-col items-start relative">
+                    <h1 className="text-bananistyle font-pro-theme-com-barlow-bold text-[length:var(--pro-theme-com-barlow-bold-font-size)] tracking-[var(--pro-theme-com-barlow-bold-letter-spacing)] leading-[var(--pro-theme-com-barlow-bold-line-height)]">
+                        Get &quot;Excavators&quot; On Rent
+                    </h1>
+                </div>
+
+                {/* Breadcrumb */}
+                <div className="absolute top-[248px] left-[780px] bg-pro-themecomcorn rounded-sm px-[35px] py-5">
+                    <Breadcrumb>
+                        <BreadcrumbList>
+                            <BreadcrumbItem>
+                                <BreadcrumbLink
+                                    href="#"
+                                    className="font-medium text-bananistyle text-lg"
+                                >
+                                    Home
+                                </BreadcrumbLink>
+                            </BreadcrumbItem>
+                            <BreadcrumbSeparator>
+                                <span className="text-bananistyle">→</span>
+                            </BreadcrumbSeparator>
+                            <BreadcrumbItem>
+                                <BreadcrumbLink
+                                    href="#"
+                                    className="font-medium text-bananistyle text-lg"
+                                >
+                                    Get &quot;Excavators&quot; On Rent
+                                </BreadcrumbLink>
+                            </BreadcrumbItem>
+                        </BreadcrumbList>
+                    </Breadcrumb>
+                </div>
+            </div>
             <div className="flex flex-col flex-1 w-full">
                 <div className="flex flex-col items-center w-full">
                     <div
