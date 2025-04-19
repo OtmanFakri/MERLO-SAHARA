@@ -2,7 +2,6 @@
 import {
     ArrowRightIcon,
     ClockIcon,
-    DownloadIcon,
     MailIcon,
     MapPinIcon,
     PhoneIcon,
@@ -26,7 +25,7 @@ import {
 } from "@/app/components/ui/details/table";
 import { Textarea } from "@/app/components/ui/details/textarea";
 import Image from 'next/image'
-import {features, galleryItems, specifications} from "@/app/constents/constents";
+import {galleryItems, specifications} from "@/app/constents/constents";
 import {
     Breadcrumb,
     BreadcrumbItem,
