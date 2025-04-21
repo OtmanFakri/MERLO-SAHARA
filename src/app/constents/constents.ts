@@ -80,3 +80,9 @@ export const specifications = [
     { label: "Walking speed:", value: "2.8/4.7 km/h" },
 ];
 
+export const fuelTypes = ["Diesel", "Essence", "Électrique"];
+export const transmissionTypes = ["Manuelle", "Automatique", "Hydrostatique"];
+export const conditions = ["Très bon", "Bon", "Moyen", "À rénover"];
+export const locomotionTypes = ["Roues", "Chenilles"];
+export const yesNoOptions = ["Oui", "Non"];
+export const yesNoNAOptions = ["Oui", "Non", "Non concerné"];
